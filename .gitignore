@@ -1,2 +1,3 @@
 _site/
-
+.playwright-mcp/
+node_modules/
