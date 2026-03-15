@@ -2,6 +2,7 @@ _site/
 node_modules/
 
 # Playwright
+.playwright-mcp/
 /test-results/
 /playwright-report/
 /blob-report/
