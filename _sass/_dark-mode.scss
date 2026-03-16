@@ -1,0 +1,153 @@
+/* ==========================================================================
+   DARK MODE — CSS Custom Properties + data-theme switching
+   ========================================================================== */
+
+/* ---------- Light theme (default) ---------- */
+:root,
+[data-theme="light"] {
+  --color-background: #fff;
+  --color-text: #{$dark-gray};
+  --color-text-muted: #{mix(#fff, $gray, 25%)};
+  --color-heading: #{$darker-gray};
+  --color-border: #{$lighter-gray};
+  --color-border-strong: #{$light-gray};
+  --color-link: #{$link-color};
+  --color-link-hover: #{$link-color-hover};
+  --color-link-visited: #{$link-color-visited};
+  --color-primary: #{$primary-color};
+  --color-masthead-link: #{$masthead-link-color};
+  --color-masthead-link-hover: #{$masthead-link-color-hover};
+  --color-code-bg: #{$code-background-color};
+  --color-card-bg: #fff;
+  --color-card-shadow: rgba(0, 0, 0, 0.06);
+  --color-card-shadow-hover: rgba(0, 0, 0, 0.11);
+  --color-footer-bg: #{$lighter-gray};
+  --color-footer-text: #{mix(#fff, $gray, 25%)};
+  --color-home-intro-bg: #f7fbfd;
+  --color-interest-tag-bg: #{$lighter-gray};
+  --color-well-bg: #f5f5f5;
+  --color-input-bg: #fff;
+  --color-hidden-links-bg: #fff;
+  --color-toc-bg: #fff;
+  --color-selection-bg: #000;
+  --color-selection-text: #fff;
+  --color-syntax-bg: #{$code-background-color};
+  --color-syntax-badge-bg: #{$lighter-gray};
+  --color-table-header-bg: #{$lighter-gray};
+  --color-modal-bg: #fff;
+  --color-modal-overlay: rgba(255, 255, 255, 0.85);
+  --color-navicon: #fff;
+  --color-badge-bg: #d9eef5;
+  --color-badge-text: #2e7d96;
+
+  /* Syntax token colors (Solarized Light) */
+  --syntax-comment: #93a1a1;
+  --syntax-default: #586e75;
+  --syntax-keyword: #859900;
+  --syntax-constant: #cb4b16;
+  --syntax-regex: #dc322f;
+  --syntax-reserved: #22b3eb;
+  --syntax-string: #2aa198;
+  --syntax-builtin: #B58900;
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+  --color-background: #1a1a2e;
+  --color-text: #d4d4d8;
+  --color-text-muted: #9ca3af;
+  --color-heading: #e5e7eb;
+  --color-border: #2d2d44;
+  --color-border-strong: #3f3f5c;
+  --color-link: #67d4e8;
+  --color-link-hover: #9be5f3;
+  --color-link-visited: #5bb8c9;
+  --color-primary: #7a8288;
+  --color-masthead-link: #d4d4d8;
+  --color-masthead-link-hover: #67d4e8;
+  --color-code-bg: #16213e;
+  --color-card-bg: #16213e;
+  --color-card-shadow: rgba(0, 0, 0, 0.25);
+  --color-card-shadow-hover: rgba(0, 0, 0, 0.4);
+  --color-footer-bg: #111827;
+  --color-footer-text: #9ca3af;
+  --color-home-intro-bg: #16213e;
+  --color-interest-tag-bg: #1e293b;
+  --color-well-bg: #16213e;
+  --color-input-bg: #16213e;
+  --color-hidden-links-bg: #1e293b;
+  --color-toc-bg: #16213e;
+  --color-selection-bg: #67d4e8;
+  --color-selection-text: #1a1a2e;
+  --color-syntax-bg: #16213e;
+  --color-syntax-badge-bg: #1e293b;
+  --color-table-header-bg: #1e293b;
+  --color-modal-bg: #1e293b;
+  --color-modal-overlay: rgba(0, 0, 0, 0.75);
+  --color-navicon: #d4d4d8;
+  --color-badge-bg: #1a3a4a;
+  --color-badge-text: #67d4e8;
+
+  /* Syntax token colors (dark-adapted) */
+  --syntax-comment: #6b7280;
+  --syntax-default: #d4d4d8;
+  --syntax-keyword: #a3e635;
+  --syntax-constant: #fb923c;
+  --syntax-regex: #f87171;
+  --syntax-reserved: #67d4e8;
+  --syntax-string: #5eead4;
+  --syntax-builtin: #fbbf24;
+
+  /* Dim non-SVG images slightly */
+  img:not([src*=".svg"]) {
+    filter: brightness(0.9);
+  }
+}
+
+/* ---------- Smooth transition (applied only during manual toggle) ---------- */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* ---------- Toggle button ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  margin-left: 0.75rem;
+  color: var(--color-masthead-link);
+  font-size: 1.15rem;
+  line-height: 1;
+  position: relative;
+  height: auto;
+  right: auto;
+  vertical-align: middle;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-masthead-link-hover);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  .theme-toggle__icon::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f186"; /* moon icon */
+  }
+}
+
+[data-theme="dark"] .theme-toggle .theme-toggle__icon::before {
+  content: "\f185"; /* sun icon */
+}

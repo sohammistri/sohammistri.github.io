@@ -1,4 +1,40 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
+<script>
+(function() {
+  var toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  toggle.addEventListener('click', function() {
+    var html = document.documentElement;
+    html.classList.add('theme-transition');
+    var current = html.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      meta.setAttribute('content', next === 'dark' ? '#1a1a2e' : '#ffffff');
+    }
+
+    setTimeout(function() {
+      html.classList.remove('theme-transition');
+    }, 350);
+  });
+
+  // Listen for OS preference changes when no manual override
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.setAttribute('content', e.matches ? '#1a1a2e' : '#ffffff');
+      }
+    }
+  });
+})();
+</script>
+
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
