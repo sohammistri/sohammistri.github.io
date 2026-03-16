@@ -64,6 +64,20 @@
     margin: 0 0 0.2em 0;
   }
 
+  .co-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.3em;
+    vertical-align: middle;
+
+    img {
+      height: 1.2em;
+      width: auto;
+      vertical-align: middle;
+      border-radius: 2px;
+    }
+  }
+
   .card-subtitle {
     font-size: $type-size-6;
     color: var(--color-text-muted);
@@ -99,8 +113,8 @@
     display: inline-block;
     margin-top: 0.6em;
     padding: 0.2em 0.65em;
-    background: lighten($info-color, 36%);
-    color: darken($info-color, 12%);
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
     border-radius: 3px;
     font-size: $type-size-7;
     font-weight: 600;
