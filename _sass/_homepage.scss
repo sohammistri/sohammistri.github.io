@@ -6,10 +6,10 @@
 .home-intro {
   font-size: 1.05em;
   line-height: 1.75;
-  color: $dark-gray;
+  color: var(--color-text);
   margin-bottom: 2em;
   padding: 1.25em 1.5em;
-  background: #f7fbfd;
+  background: var(--color-home-intro-bg);
   border-left: 4px solid $info-color;
   border-radius: 0 $border-radius $border-radius 0;
 
@@ -31,7 +31,7 @@
 .home-section-title {
   font-size: $type-size-4;
   font-weight: 700;
-  color: $darker-gray;
+  color: var(--color-heading);
   margin-top: 0;
   margin-bottom: 0.85em;
   padding-bottom: 0.4em;
@@ -40,10 +40,10 @@
 
 /* Generic card */
 .home-card {
-  background: #fff;
-  border: 1px solid $border-color;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px var(--color-card-shadow);
   padding: 1.15em 1.4em;
   margin-bottom: 0.85em;
   transition: box-shadow 0.18s ease, transform 0.18s ease;
@@ -53,20 +53,20 @@
   }
 
   &:hover {
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.11);
+    box-shadow: 0 5px 18px var(--color-card-shadow-hover);
     transform: translateY(-2px);
   }
 
   .card-title {
     font-size: $type-size-5;
     font-weight: 700;
-    color: $darker-gray;
+    color: var(--color-heading);
     margin: 0 0 0.2em 0;
   }
 
   .card-subtitle {
     font-size: $type-size-6;
-    color: $gray;
+    color: var(--color-text-muted);
     margin: 0 0 0.65em 0;
 
     a {
@@ -81,7 +81,7 @@
 
   .card-body {
     font-size: 0.92em;
-    color: $text-color;
+    color: var(--color-text);
     line-height: 1.65;
     margin: 0;
 
@@ -134,11 +134,11 @@
 .interest-tag {
   display: inline-block;
   padding: 0.35em 0.9em;
-  background: $lighter-gray;
-  border: 1px solid $light-gray;
+  background: var(--color-interest-tag-bg);
+  border: 1px solid var(--color-border-strong);
   border-radius: 20px;
   font-size: $type-size-6;
-  color: $dark-gray;
+  color: var(--color-text);
   font-weight: 500;
 }
 
@@ -152,10 +152,10 @@
 .achievement-card {
   text-align: center;
   padding: 1.1em 0.75em;
-  background: #fff;
-  border: 1px solid $border-color;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px var(--color-card-shadow);
 
   .achievement-rank {
     font-size: $type-size-2;
@@ -167,7 +167,7 @@
   .achievement-exam {
     font-size: $type-size-7;
     font-weight: 700;
-    color: $dark-gray;
+    color: var(--color-text);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-top: 0.3em;
@@ -175,7 +175,7 @@
 
   .achievement-year {
     font-size: $type-size-8;
-    color: $gray;
+    color: var(--color-text-muted);
     margin-top: 0.2em;
   }
 }
@@ -195,15 +195,15 @@
   display: block;
   text-align: center;
   padding: 1.2em 0.75em;
-  background: #fff;
-  border: 1px solid $border-color;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   text-decoration: none !important;
-  color: $dark-gray !important;
+  color: var(--color-text) !important;
   font-weight: 600;
   font-size: $type-size-6;
   transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px var(--color-card-shadow);
 
   .nav-card-icon {
     font-size: 1.35em;
